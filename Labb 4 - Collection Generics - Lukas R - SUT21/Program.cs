@@ -42,34 +42,39 @@ namespace Labb_4___Collection_Generics___Lukas_R___SUT21
             empStack.Push(erikR);
             empStack.Push(helga);
 
-            WriteGreen("STACK.PEEK");
+            WriteGreen("STACK.PEEK:");
             for (int i = 0; i < 5; i++)
             {
-                Console.WriteLine(empStack.Peek()); 
+                Console.WriteLine(empStack.Peek());
                 WriteYellow("Föremål kvar i stack: " + empStack.Count);
             }
             Continue();
 
-            WriteGreen("Is item 3 in stack?");
-            Console.WriteLine((empStack.Contains(viktor)) ? "\nItem 3  is in stack" : "\nItem 3 is not in stack");
-            Console.Clear();
+            WriteGreen("Is Viktor in stack?");
+            Console.WriteLine((empStack.Contains(viktor)) ? "\nViktor is in stack" : "\nViktor is not in stack");
+            Continue();
 
-            List<Employee> empList = new List<Employee>() { lukas, erikN, erikR, viktor, helga};
+            List<Employee> empList = new List<Employee>() { lukas, erikN, erikR, viktor, helga };
 
             WriteGreen("LIST: ");
+
             Console.WriteLine((empList.Contains(viktor) ? "Viktor exists in the list\n" : "Viktor does not exist in the list\n"));
+            
             WriteYellow("First male employee in list:");
             Console.WriteLine(empList.Find(emp => emp.Gender == 'M'));
-            List<Employee> maleEmpList = new List<Employee>(empList.FindAll(emp => emp.Gender == 'M'));
-
+            
             WriteYellow("\nAll male employees: ");
-            foreach  (Employee employee in maleEmpList)
+            List<Employee> maleEmpList = new List<Employee>(empList.FindAll(emp => emp.Gender == 'M'));         
+            foreach (Employee employee in maleEmpList)
             {
                 Console.WriteLine(employee);
             }
             Console.ReadLine();
-
         }
+
+        //########################
+        //#JUST SOME MENU METHODS#
+        //########################
         public static void WriteYellow(string input)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
